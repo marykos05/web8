@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Калькулятор стоимости доставки</title>
+  <script src="jquery.js"></script>
+  <script src="slick/slick.min.js"></script>
+  <link href = "slick/slick.css" rel = "stylesheet"/>
+  <link rel="stylesheet" 
+          href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link href = "slick/slick-theme.css" rel = "stylesheet"/>
+  <script src="slider.js"></script>
+  <script src="calculatorservice.js"></script>
+        <link href="calculatorservice.css" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <h1><img id="logo" src="logo.jpg" align = "middle" />Калькулятор стоимости доставки</h1>
+  </header>
+  <p>Привет! Меня зовут Кэтберри. Я помогу Вам оформить доставку из магазина.</p>
+  <div>
+    <h2>Выберите желаемую доставку:</h2>
+    <input type="radio" id="service1" name="service" value="1" checked>
+    <label for="service1">Доставка почтой России (20 руб/шт) </label><br><br>
+    <input type="radio" id="service2" name="service" value="2">
+    <label for="service2">Доставка в пункт выдачи (30 руб/шт) </label><br><br>
+    <input type="radio" id="service3" name="service" value="3">
+    <label for="service3">Доставка курьером (50 руб/шт) </label>
+  </div>
+
+
+  <div id="options-container">
+    <h3>Выберите ближайший к Вам пункт выдачи:</h3>
+    <select id="options">
+      </select>
+  </div>
+
+  <div id="property-container">
+    <input type="checkbox" id="property1" name="property" value="40">
+    <label for="property"> Добавить подарочную упаковку (+40 руб)</label>
+    <br/>
+    <input type="checkbox" id="property2" name="property" value="100">
+    <label for="property"> Доставка к определенному времени (+100 руб)</label>
+  </div><br/>
+  <div>
+    <label for="quantity">Определите количество товара для доставки:</label>
+    <input type="number" id="quantity" value="1" min="1">
+  </div>
+  <div>
+    <h3>Итоговая стоимость:</h3>
+    <span id="price">0</span>
+  </div>
+
+  <h3>Пожалуйста, заполните форму для оформления заказа:</h3>
+  <button>Показать форму</button>
+
+<div class="popup">
+  <div class="popup__container">
+    <div class="popup__wrapper">
+      <div id="blablabla">
+        <form role="form" action="/requestFine" autocomplete="off" method="POST">
+          <label>
+            ФИО: <br />
+            <input name = "name" type = "text" class="sto"
+            value = "Киреев Иван Васильевич"/>
+        </label><br />
+        <label> 
+            Телефон: <br />
+            <input name = "telephone" type = "tel" class="sto"
+            value = "8-800-555-35-35"/>
+        </label><br />
+        <label>
+            E-mail: <br />
+            <input name = "email" type = "email" class="sto"
+            value = "example@mail.ru"/>
+        </label><br />
+        <label>
+          Организация: <br />
+          <input name = "name" type = "text" class="sto"
+          value = "ООО КотикСтройПласт"/>
+      </label><br />
+      <label>
+        Комментарий к заказу:<br />
+            <textarea name="biography">Например: оповестить меня об отправке посылки в WhatsApp</textarea></label><br />
+            <label><input type="checkbox" unchecked="unchecked"
+              name="contract" />
+              Я подтверждаю свое согласие с политикой обработки персональных данных</label><br />
+          <br/><button type="submit" class="btn btn-success">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  <h2>Наши котосотрудники:</h2>
+  <div class="gallery-container">
+    <div class="gallery">
+        <img src="image1.jpg" alt="Image 1" width="300" height="200">
+        <img src="image2.jpg" alt="Image 2" width="300" height="200">
+        <img src="image3.jpg" alt="Image 3" width="300" height="200">
+        <img src="image4.jpg" alt="Image 4" width="300" height="200">
+        <img src="image5.jpg" alt="Image 5" width="300" height="200">
+        <img src="image6.jpg" alt="Image 6" width="300" height="200">
+        <img src="image7.jpg" alt="Image 7" width="300" height="200">
+        <img src="image8.jpg" alt="Image 8" width="300" height="200">
+    </div>
+</div>
+<div class="pager">
+    <span id="currentPage">1</span> / <span id="totalPages">3</span>
+</div>
+  <footer>
+    &copy;
+    ИП "Catberry",
+    <time datetime="2024">2024</time>
+    </footer>
+</body>
+</html>
