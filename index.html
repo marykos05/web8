@@ -82,10 +82,19 @@
       <label>
         Комментарий к заказу:<br />
             <textarea name="biography">Например: оповестить меня об отправке посылки в WhatsApp</textarea></label><br />
-            <label><input type="checkbox" unchecked="unchecked"
-              name="contract" />
+            
+<label><input type="checkbox" name="contract" id="contract-checkbox" required> />
               Я подтверждаю свое согласие с политикой обработки персональных данных</label><br />
-          <br/><button type="submit" class="btn btn-success">Отправить</button>
+          <br/><button type="submit" class="btn btn-success" disabled id="submitButton">Отправить</button>
+
+            <script>
+              const checkbox = document.getElementById("contract-checkbox");
+              const submitButton = document.getElementById("submitButton");
+          
+              checkbox.addEventListener("change", () => {
+                submitButton.disabled = !checkbox.checked;
+              });
+            </script>
         </form>
       </div>
     </div>
